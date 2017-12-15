@@ -1,7 +1,7 @@
 var mysql = require("mysql");
 // var inquirer = require("inquirer");
 
-//create connection to bamazondb
+//create connection to burger_db
 var connection = mysql.createConnection({
     host: "localhost",
     port: 8080,
