@@ -7,7 +7,7 @@ var connection = mysql.createConnection({
     port: 8080,
     user: "root",
     password: "",
-    database: "burger_db"
+    database: "burgers_db"
 });
 
 // call showItemsAvailable upon connecting
