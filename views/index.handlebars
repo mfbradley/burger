@@ -1,30 +1,38 @@
-<h1>Burgers!</h1>
-
-<p>Eat Da Burger</p>
-
+<h1>Eat Da Burger!</h1>
+<img>
 <!-- Pass in data from server.js -->
+
+<h2>Burgers ready to be enjoyed!</h2>
+
 <ul>
     {{#each burgers}} {{#unless devoured}}
     <li>
-        <p><span class="label"></span> {{this.burger}}</p>
-        <button data-id="{{this.id}}" class="delquote">Devour It!</button>
+        {{burger_name}}
+
+        <button class="devour" data-id="{{id}}" data-neweat="{{devoured}}">
+		{{#if devoured}}{{else}}Devour!!{{/if}}
+		</button>
     </li>
     {{/unless}} {{/each}}
 </ul>
 
-<h2>Add a Burger</h2>
+<h2>Burgers that have been devoured!</h2>
+
+<ul>
+    {{#each burgers}} {{#if devoured}}
+    <li>
+        {{burger_name}}
+    </li>
+    {{/if}} {{/each}}
+</ul>
 
 <form class="create-form">
 
     <div class="form-group">
-        <label for="newBurg">Burger:</label>
-        <input type="text" id="newBurg" name="name">
-    </div>
-
-    <div class="form-group">
-        <label for="des">Description:</label>
-        <textarea id="des" name="name" rows="8" cols="40"></textarea>
+        <label for="des"></label>
+        <textarea id="des" name="name" rows="3" cols="40"></textarea>
     </div>
 
     <button type="submit">Add Burger</button>
+    <p>Create a burger you want to devour, then press the 'Add Burger' button!</p>
 </form>
