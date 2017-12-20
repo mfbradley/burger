@@ -1,6 +1,7 @@
 $(function() {
 
-    $(".devour").on('click', function(event) {
+    $(".change-devour").on('click', function(event) {
+
         var id = $(this).data('id');
         var newEat = $(this).data('neweat');
 
@@ -17,14 +18,15 @@ $(function() {
                 location.reload();
             }
         );
-
+        console.log("working");
     });
 
-    $(".create-form").on("submit", function(event) {
+    $("#addBurger").on("click", function(event) {
         event.preventDefault();
 
         var newBurger = {
-            burger_name: $("bur").val().trim()
+            burger_name: $("#bur").val().trim(),
+            devoured: false
         };
 
         $.ajax("/api/burgers", {
@@ -34,6 +36,7 @@ $(function() {
             console.log("created new burger");
             location.reload();
         });
+        console.log(newBurger);
     });
 
 });

@@ -5,34 +5,20 @@
 <h2>Burgers ready to be enjoyed!</h2>
 
 <ul>
-    {{#each burgers}} {{#unless devoured}}
-    <li>
-        {{burger_name}}
-
-        <button class="devour" data-id="{{id}}" data-neweat="{{devoured}}">
-		{{#if devoured}}{{else}}Devour!!{{/if}}
-		</button>
-    </li>
-    {{/unless}} {{/each}}
+    {{#each burgers}} {{#unless devoured}} {{> burgers/newburger devoured=true}} {{/unless}} {{/each}}
 </ul>
 
 <h2>Burgers that have been devoured!</h2>
 
 <ul>
-    {{#each burgers}} {{#if devoured}}
-    <li>
-        {{burger_name}}
-    </li>
-    {{/if}} {{/each}}
+    {{#each burgers}} {{#if devoured}} {{> burgers/newburger devoured=false}} {{/if}} {{/each}}
 </ul>
 
-<form class="create-form">
+<div class="form">
+    <form>
+        <input type="text" id="bur" name="name">
 
-    <div class="form-group">
-        <label for="des"></label>
-        <textarea id="des" name="name" rows="3" cols="40"></textarea>
-    </div>
-
-    <button type="submit">Add Burger</button>
-    <p>Create a burger you want to devour, then press the 'Add Burger' button!</p>
-</form>
+        <button id="addBurger" type="submit">Add Burger</button>
+        <p>Create a burger you want to devour, then press the 'Add Burger' button!</p>
+    </form>
+</div>
