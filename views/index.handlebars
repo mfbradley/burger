@@ -4,12 +4,12 @@
 
 <!-- Pass in data from server.js -->
 <ul>
-    {{#each burger}}
+    {{#each burgers}} {{#unless devoured}}
     <li>
         <p><span class="label"></span> {{this.burger}}</p>
         <button data-id="{{this.id}}" class="delquote">Devour It!</button>
     </li>
-    {{/each}}
+    {{/unless}} {{/each}}
 </ul>
 
 <h2>Add a Burger</h2>
@@ -17,13 +17,13 @@
 <form class="create-form">
 
     <div class="form-group">
-        <label for="auth">Burger:</label>
-        <input type="text" id="newBurg" name="burger">
+        <label for="newBurg">Burger:</label>
+        <input type="text" id="newBurg" name="name">
     </div>
 
     <div class="form-group">
-        <label for="quo">Description:</label>
-        <textarea id="quo" name="quote" rows="8" cols="40"></textarea>
+        <label for="des">Description:</label>
+        <textarea id="des" name="name" rows="8" cols="40"></textarea>
     </div>
 
     <button type="submit">Add Burger</button>
