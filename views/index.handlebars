@@ -11,7 +11,11 @@
 <h2>Burgers that have been devoured!</h2>
 
 <ul>
-    {{#each burgers}} {{#if devoured}} {{> burgers/newburger devoured=false}} {{/if}} {{/each}}
+    {{#each burgers}} {{#if devoured}}
+    <li>
+        {{burger_name}}
+    </li>
+    {{/if}} {{/each}}
 </ul>
 
 <div class="form">
